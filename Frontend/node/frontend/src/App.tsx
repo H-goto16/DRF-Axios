@@ -1,6 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+// import axios from 'axios';
+
+// const api = axios.get("http://localhost:8000/products/products/1/");
+// console.log(api);
 
 function App() {
   return (

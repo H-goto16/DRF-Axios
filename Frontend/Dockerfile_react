@@ -1,4 +1,8 @@
 FROM node:16-alpine3.11
-WORKDIR /usr/src/app
+WORKDIR  /usr/src/app/
+
 
 RUN npm install -g npm@8.12.2
+RUN npm install  yarn --save
+RUN yarn install
+RUN yarn add axios

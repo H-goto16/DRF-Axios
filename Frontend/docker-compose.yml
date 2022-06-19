@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile_react
     restart: always
     volumes:
-      - ./node:/usr/src/app:cached
+      - ./node:/usr/local/app:cached
     command: sh -c "cd frontend && yarn start"
     ports:
       - "3000:3000"
