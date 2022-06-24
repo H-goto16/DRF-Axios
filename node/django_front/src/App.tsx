@@ -3,8 +3,8 @@ import './App.css';
 import axios from 'axios';
 
 type Data = {
-name: any;
-price: any
+name: string;
+price: number
 }
 export const App = () => {
 const urlAPI = "http://localhost:8000/products/products/";
