@@ -1,39 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import axios from "axios";
+import axios from 'axios';
 
-	
-axios
-.get("http://localhost:8000/products/products/1/")
-.then((results) => {
-    console.log(results.data);
-})
-.catch((error) => {
-    console.log('通信失敗');
-    console.log(error.status);
-});
-
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+type Data = {
+name: any;
+price: any
 }
-
+export const App = () => {
+const urlAPI = "http://localhost:8000/products/products/";
+const [datas, setDatas] = useState([]);
+console.log(axios.defaults.baseURL)
+useEffect( () => {
+  axios.get(urlAPI).then((res)=> {
+    setDatas(res.data);
+  })
+},[])
+console.log(datas)
+return (
+  <div className="App">
+    <h1>Axios Test</h1>
+    <div>
+      {datas.map((data: Data) => (
+        <div>{data.name} : {data.price}</div>
+      ))}
+    </div>
+  </div>
+);}
 export default App;
